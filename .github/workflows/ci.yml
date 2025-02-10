@@ -21,37 +21,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Ensure using a compatible Node version (16 or higher)
+          node-version: '22'
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           npm install
-          npm list --depth=0  # Log installed dependencies to debug potential issues
-
-      # Step 4: Install `crypto-browserify` to polyfill the Node.js crypto module
-      - name: Install crypto-browserify
-        run: npm install crypto-browserify
-
-      # Step 5: Configure Vite to use `crypto-browserify` as a polyfill
-      - name: Configure Vite to use crypto-browserify
-        run: |
-          echo 'module.exports = { resolve: { alias: { crypto: require.resolve("crypto-browserify") } } }' > vite.config.js
-
+          
       # Step 6: Build the Vite app
       - name: Build Vite app
         run: npm run build
-
-      # Step 7: Verify build output (optional)
-      - name: Check build directory
-        run: |
-          echo "Listing contents of current directory:"
-          ls -alh
-          echo "Listing contents of dist directory:"
-          ls -alh ./dist
-          if [ ! -d "./dist" ]; then
-            echo "Build failed: dist directory is missing."
-            exit 1
-          else
-            echo "Build succeeded: dist directory found."
-          fi
