@@ -56,6 +56,8 @@ export default tseslint.config({
   - Redirect to browse page
   - Login Form
   - Sign Up Form
+  - Form Validation
+  - useRefHook
 - Browse
   - Header
   - Main Movie
