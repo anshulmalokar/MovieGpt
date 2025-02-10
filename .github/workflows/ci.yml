@@ -1,0 +1,42 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Or the default branch you're working with (e.g., master)
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Or the version of Node.js you are using
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the Vite app
+      - name: Build Vite app
+        run: npm run build
+
+      # Step 5: Verify build output (optional)
+      - name: Check build directory
+        run: |
+          if [ ! -d "./dist" ]; then
+            echo "Build failed: dist directory is missing."
+            exit 1
+          else
+            echo "Build succeeded: dist directory found."
+          fi
