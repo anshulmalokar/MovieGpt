@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import Header from './Header'
 import { useNavigate } from 'react-router-dom';
 
@@ -6,13 +5,6 @@ type Props = {}
 
 export default function SingUp({}: Props) {
     const navigate = useNavigate();
-    const email = useRef(null);
-    const password = useRef(null);
-    const userName = useRef(null);
-
-    const validateData = () => {
-      // Add Validation in the SingUp form too.
-    }
 
     const handleClick = () => {
       navigate('/');
