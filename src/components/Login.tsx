@@ -26,7 +26,6 @@ export default function Login({}: Props) {
       const password_value = password.current.value;
       signInWithEmailAndPassword(auth, email_value, password_value)
         .then(() => {
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

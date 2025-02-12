@@ -30,7 +30,6 @@ export default function SingUp({}: Props) {
               displayName: name.current.value
             });
           }
-          navigate("/browse")
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -8,12 +8,20 @@ import {
 } from "react-router-dom";
 import SingUp from "./SingUp";
 import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { addUser, removeUser } from "../utils/userSlice";
-import { useDispatch } from "react-redux";
-import { auth } from "../utils/FireBase";
+import axios from "axios";
 
 type Props = {};
+
+const callApi = async () => {
+  const res = await axios.get("https://api.themoviedb.org/3/trending/movie/day?language=en-US",{
+    headers:{
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YzczYmJhNTRmN2E3NGJjMmMwNDRmOTEzNmJjNzg1MiIsIm5iZiI6MTczOTM3MTgxMC4xNTI5OTk5LCJzdWIiOiI2N2FjYjUyMjViZDlmZTUwNTdiMGMxODkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RQHMkhnB-4IQECgG0HwWoX3nTAK60Ntb6WXR_yogks0',
+      Accept: 'application/json'
+    }
+  });
+  // @ts-ignore
+  console.log(res.data.results);
+};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,18 +34,9 @@ const router = createBrowserRouter(
 );
 
 export default function Body({}: Props) {
-  const dispatch = useDispatch();
-  
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(addUser({uid: user.uid, email: user.email, displayName: user.displayName }));
-      } else {
-        dispatch(removeUser());
-      }
-    });
-  }, []);
-
+    callApi();
+  },[])
   return (
     <>
       <RouterProvider router={router} />

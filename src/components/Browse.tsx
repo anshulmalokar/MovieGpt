@@ -1,11 +1,12 @@
-import Header from "./Header"
+import Header from "./Header";
 
-type Props = {}
+type Props = {};
 
 export default function Browse({}: Props) {
+
   return (
     <>
-      <Header/>  
+      <Header />    
     </>
-  )
+  );
 }

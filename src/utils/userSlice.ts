@@ -4,8 +4,6 @@ const userSlice = createSlice({
   initialState: { value: null},
   reducers: {
     addUser: (state, action) => {
-        console.log("addUser reducer being called");
-        console.log(action.payload);
         state.value = action.payload;
         return;
     },

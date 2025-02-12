@@ -1,12 +1,31 @@
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, Unsubscribe } from "firebase/auth";
 import { auth } from "../utils/FireBase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { addUser, removeUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
 type Props = {};
 
 export default function Header({}: Props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = auth.currentUser;
+  
+  useEffect(() => {
+    const unsubscribe: Unsubscribe =onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(addUser({uid: user.uid, email: user.email, displayName: user.displayName }));
+        navigate("/browse")
+      } else {
+        dispatch(removeUser())
+        navigate("/");
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <div className="w-full h-11 flex justify-between mt-2">
       <img
@@ -32,3 +51,4 @@ export default function Header({}: Props) {
     </div>
   );
 }
+
