@@ -2,12 +2,13 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import { checkValidData } from "../utils/Validate";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utils/FireBase";
 type Props = {};
 
 export default function SingUp({}: Props) {
   const navigate = useNavigate();
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   const [error, setError] = useState<String>("");
@@ -22,7 +23,13 @@ export default function SingUp({}: Props) {
       // @ts-ignore
       const password_value = password.current.value;
       createUserWithEmailAndPassword(auth, email_value, password_value)
-        .then((userCredential) => {
+        .then(() => {
+          if(auth.currentUser !== null){
+            updateProfile(auth.currentUser,{
+              // @ts-ignore
+              displayName: name.current.value
+            });
+          }
           navigate("/browse")
         })
         .catch((error) => {
@@ -54,6 +61,15 @@ export default function SingUp({}: Props) {
               action="#"
             >
               <span>SignUp</span>
+              <span>Enter your name</span>
+              <input
+                ref={name}
+                className="border-white"
+                type="text"
+                name="Email address"
+                id="name"
+                placeholder="Email or username"
+              />
               <span>Enter your email address</span>
               <input
                 ref={email}
@@ -61,7 +77,7 @@ export default function SingUp({}: Props) {
                 type="text"
                 name="Email address"
                 id=""
-                placeholder="Email or mobile number"
+                placeholder="Email or email"
               />
               <span>Enter your password</span>
               <input

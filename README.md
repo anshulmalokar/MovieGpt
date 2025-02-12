@@ -58,6 +58,8 @@ export default tseslint.config({
   - Sign Up Form
   - Form Validation
   - useRef Hook
+  - implement singup and singin
+  - created redux store with userSlice
 - Browse
   - Header
   - Main Movie
