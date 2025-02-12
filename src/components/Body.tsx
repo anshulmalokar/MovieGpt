@@ -15,7 +15,7 @@ type Props = {};
 const callApi = async () => {
   const res = await axios.get("https://api.themoviedb.org/3/trending/movie/day?language=en-US",{
     headers:{
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YzczYmJhNTRmN2E3NGJjMmMwNDRmOTEzNmJjNzg1MiIsIm5iZiI6MTczOTM3MTgxMC4xNTI5OTk5LCJzdWIiOiI2N2FjYjUyMjViZDlmZTUwNTdiMGMxODkiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RQHMkhnB-4IQECgG0HwWoX3nTAK60Ntb6WXR_yogks0',
+      Authorization: `Bearer ${import.meta.env.VITE_API_Read_Access_Token}`,
       Accept: 'application/json'
     }
   });
