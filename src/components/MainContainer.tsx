@@ -14,10 +14,9 @@ export default function MainContainer({}: {}) {
     console.log(mainMovie);
     mainMovie.original_title;
   }
-  console.log("Rendering the Main Container");
   return (
-    <div>
-        <VideoBackground>
+    <div className="h-[700px]">
+        <VideoBackground id={mainMovie.id.toString()}>
             <VideoTitle title={mainMovie.original_title} description={mainMovie.overview} />
         </VideoBackground>
     </div>

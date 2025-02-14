@@ -9,9 +9,11 @@ export default function Browse({}: Props) {
   useNowPlayingMovies();
   return (
     <>
-      <Header /> 
-      <MainContainer/>
-      <SecondaryContainer/>
+      <div>
+        <Header /> 
+        <MainContainer/>
+        <SecondaryContainer/>
+      </div>
     </>
   );
 }
