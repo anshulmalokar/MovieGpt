@@ -1,18 +1,13 @@
 import { useRef } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../utils/store";
 import { Movie } from "../utils/movieSlice";
 import MovieCard from "./MovieCard";
 
 type Props = {
-    title: String
+    title: String,
+    movie: Movie[] | null
 };
 
-export default function MovieList({title}: Props) {
-  const nowPlayingMovies: Movie[] | null = useSelector(
-    (state: RootState) => state.movies.nowPlayingMovies
-  );
-
+export default function MovieList({title, movie}: Props) {
   // Create a ref for the scrollable container
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,7 +30,7 @@ export default function MovieList({title}: Props) {
       });
     }
   };
-  if (nowPlayingMovies === null || nowPlayingMovies === undefined || nowPlayingMovies.length === 0) return <></>;
+  if (movie === null || movie === undefined || movie.length === 0) return <></>;
   return (
     <div>
       <h1 className="relative z-10 text-white ml-10 text-2xl font-bold">{title}</h1>
@@ -59,7 +54,7 @@ export default function MovieList({title}: Props) {
           ref={scrollContainerRef}
           className="flex gap-1 overflow-x-scroll scrollbar-hide hover:scrollbar-visible"
         >
-          {nowPlayingMovies?.map((movie, kye) => (
+          {movie?.map((movie, kye) => (
             <div key={kye} className="flex-shrink-0">
               <MovieCard
                 title={movie.title}

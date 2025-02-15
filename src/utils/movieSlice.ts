@@ -19,10 +19,16 @@ export type Movie = {
 
 interface MovieState {
   nowPlayingMovies: Movie[] | null;
+  upcomingMovies: Movie[] | null,
+  popularMovies: Movie[] | null,
+  topRatedMovies: Movie[] | null
 }
 
 const initialState: MovieState = {
   nowPlayingMovies: null,
+  upcomingMovies: null,
+  popularMovies: null,
+  topRatedMovies: null
 };
 
 const movieSlice = createSlice({
@@ -32,8 +38,17 @@ const movieSlice = createSlice({
     addNowPlayingMovies: (state, action: PayloadAction<Movie[]>) => {
       state.nowPlayingMovies = action.payload;
     },
+    addUpcomingMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.upcomingMovies = action.payload;
+    },
+    addPopularMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.popularMovies = action.payload;
+    },
+    addTopRatedMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.topRatedMovies = action.payload;
+    },
   },
 });
 
-export const { addNowPlayingMovies } = movieSlice.actions;
+export const { addNowPlayingMovies, addUpcomingMovies, addPopularMovies, addTopRatedMovies } = movieSlice.actions;
 export default movieSlice.reducer;
