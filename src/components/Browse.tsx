@@ -12,7 +12,9 @@ export default function Browse({}: Props) {
       <div>
         <Header /> 
         <MainContainer/>
-        <SecondaryContainer/>
+        <div className="z-10">
+          <SecondaryContainer/>
+        </div>
       </div>
     </>
   );

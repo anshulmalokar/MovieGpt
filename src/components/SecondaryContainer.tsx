@@ -1,12 +1,18 @@
-type Props = {}
+import MovieList from "./MovieList";
+
+type Props = {};
 
 export default function SecondaryContainer({}: Props) {
   return (
     <>
-      <div className="h-[200px] bg-amber-100">SecondaryContainer</div>
-      <div>SecondaryContainer</div>
-      <div>SecondaryContainer</div>
+      <div className="h-full bg-black">
+        <MovieList title="Now Playing" />
+        <MovieList title="Top Rated" />
+        <MovieList title="Popular" />
+        <MovieList title="Upcoming" />
+        <MovieList title="Trending" />
+        <MovieList title="Action" />
+      </div>
     </>
-    
-  )
+  );
 }
