@@ -17,7 +17,6 @@ export default function Browse({}: Props) {
   useUpcomingMovies();
   useTopRateMovies();
   usePopularMovie();
-  console.log(toggle);
   return (
     <>
       <Header />

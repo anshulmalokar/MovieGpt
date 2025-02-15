@@ -4,9 +4,7 @@ const toggleSlice = createSlice({
   initialState: { value: 0},
   reducers: {
     toggleUp: (state) => {
-        console.log(state.value)
         state.value = state.value ^ 1;
-        console.log(state.value)
         return;
     },
     toogleInit: (state) => {

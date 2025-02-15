@@ -1,9 +1,11 @@
-import React from 'react'
+import Header from "./Header"
 
 type Props = {}
 
 export default function GptMovieSuggestion({}: Props) {
   return (
-    <div>GptMovieSuggestion</div>
+    <div>
+      <Header/>
+    </div>
   )
 }

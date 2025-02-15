@@ -11,7 +11,6 @@ export default function MainContainer({}: {}) {
     return <></>;
   }else{
     mainMovie = nowPlayingMovies[0];
-    console.log(mainMovie);
     mainMovie.original_title;
   }
   return (
