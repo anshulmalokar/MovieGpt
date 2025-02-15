@@ -40,14 +40,14 @@ export default function Login({}: Props) {
   return (
     <>
       <div
-        className="w-full relative  bg-no-repeat bg-cover h-screen rounded-xl overflow-hidden bg-gradient-to-b from-black"
+        className="w-full bg-no-repeat bg-cover h-screen rounded-xl overflow-hidden bg-gradient-to-b from-black"
         style={{
           backgroundImage:
             "url('https://assets.nflxext.com/ffe/siteui/vlv3/638e9299-0637-42d1-ba39-54ade4cf2bf6/web/IN-en-20250203-TRIFECTA-perspective_46eb8857-face-4ea6-b901-dbf22b461369_medium.jpg')",
           backgroundPosition: "center",
         }}
       >
-        <Header />
+          <Header />
         <div className="flex justify-center">
           <div className="bg-[rgba(0,0,0,0.7)] items-center mt-20 w-[300px] h-fit p-8 rounded-xl">
             <form
