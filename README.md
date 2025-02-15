@@ -72,3 +72,4 @@ export default tseslint.config({
 - Netflix-Gpt
   - Search Bar
   - Movie Suggestions
+  - GPT Search feature

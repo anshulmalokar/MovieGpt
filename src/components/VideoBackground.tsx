@@ -44,7 +44,7 @@ export default function VideoBackground({ id, children }: Props) {
   }
 
   return (
-    <div className="absolute top-0 left-0">
+    <div className="absolute top-0 left-0 -z-10">
       <iframe
         className="w-full h-screen absolute top-0 left-0 z-0 aspect-video"
         src={videoUrl}
