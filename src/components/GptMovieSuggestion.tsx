@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../utils/store";
-import Header from "./Header"
 import { Movie } from "../utils/movieSlice";
-import MovieCard from "./MovieCard";
 
 type Props = {}
 
@@ -11,7 +9,7 @@ export default function GptMovieSuggestion({}: Props) {
   if(movieSuggestions === null) return <></>
   return (
     <div className="">
-      <Header/>
+      {/* <Header/>
       {
         movieSuggestions.map((movie, kye) => <>
           <div key={kye}>
@@ -22,7 +20,7 @@ export default function GptMovieSuggestion({}: Props) {
               />
             </div>
         </>)
-      }
+      } */}
     </div>
   )
 }

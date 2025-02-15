@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { toggleUp, toogleInit } from "../utils/gptToggleSlice";
+import { toogleInit } from "../utils/gptToggleSlice";
 type Props = {};
 
 export default function Header({}: Props) {
@@ -44,13 +44,13 @@ export default function Header({}: Props) {
       {user !== null ? (
         <div className="flex mr-3 gap-2">
           {
-            <>
-              <button
-              onClick={()=>dispatch(toggleUp())} 
-              className="hover:cursor-pointer focus:outline-none text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
-                Gpt Search
-              </button>
-            </>
+            // <>
+            //   <button
+            //   onClick={()=>dispatch(toggleUp())} 
+            //   className="hover:cursor-pointer focus:outline-none text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+            //     Gpt Search
+            //   </button>
+            // </>
           }
           <button
             onClick={() => {
