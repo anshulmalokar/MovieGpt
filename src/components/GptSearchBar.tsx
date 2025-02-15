@@ -23,6 +23,7 @@ export default function GptSearchBar({}: Props) {
       const movieListString = chatCompletion.choices[0].message.content 
       || "";
       const movieArray: string[] = JSON.parse(movieListString);
+      console.log(movieArray);
       const moArr: Movie[] = [];
       movieArray.map(async (movie) => {
         const url = 'https://api.themoviedb.org/3/search/movie';
@@ -66,7 +67,7 @@ export default function GptSearchBar({}: Props) {
             type="submit"
             className="w-32 mr-96 p-4 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
           >
-            Search
+            button
           </button>
         </div>
       </form>
